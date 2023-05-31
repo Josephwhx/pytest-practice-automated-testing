@@ -1,7 +1,7 @@
 import pytest
 import sys
 
-pytestmark = pytest.mark.skipif(sys.platform == 'win32')
+pytestmark = pytest.mark.skipif(sys.platform == 'win32', reason='Only runs on linux os')
 
 const = 9/5
 def cent_to_fah(cent=0):
