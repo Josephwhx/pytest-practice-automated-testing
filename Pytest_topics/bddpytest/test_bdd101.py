@@ -8,14 +8,16 @@ featureFile = 'first101.feature'
 BASE_DIR = Path(__file__).resolve().parent
 FEATURE_FILE = BASE_DIR.joinpath(featureFileDir).joinpath(featureFile)
 
-def pytest_configure():
+def pytest_configure(): # global variable
     pytest.AMT = 0
 
+scenarios(FEATURE_FILE)
 
-@scenario(FEATURE_FILE, 'Withdrawal of money')
-def test_withdrawal():
-    print("End of withdrawal test")
-    pass
+
+# @scenario(FEATURE_FILE, 'Withdrawal of money')
+# def test_withdrawal():
+#     print("End of withdrawal test")
+#     pass
 
 @given('the account balance is 100')
 def current_balance():
@@ -30,9 +32,9 @@ def final_balance():
     assert pytest.AMT == 70
 
 
-@scenario(FEATURE_FILE, 'Removal of items from set')
-def test_removalOfItems():
-    pass
+# @scenario(FEATURE_FILE, 'Removal of items from set')
+# def test_removalOfItems():
+#     pass
 
 @given("A set of 3 fruits", target_fixture="myset")
 def current_balance():
